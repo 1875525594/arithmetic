@@ -18,8 +18,7 @@ public class Test01 {
             boolean add = list.add(new Callable<Object>() {
                 @Override
                 public Object call() throws Exception {
-                    System.out.println("线程:" + Thread.currentThread().getId() + "进行了" + number1);
-                    System.out.println("线程:" + Thread.currentThread().getId() + "进行了" + key);
+                    System.out.println("线程:" + Thread.currentThread().getId() + "="+"进行了" + number1);
                     return 1;
                 }
             });
