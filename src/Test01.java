@@ -13,16 +13,21 @@ public class Test01 {
         ArrayList<Callable<Object>> list = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             int number1=i;
+            int key =i;
             //线程安全。通过单线程分配任务id后，
             boolean add = list.add(new Callable<Object>() {
                 @Override
                 public Object call() throws Exception {
                     System.out.println("线程:" + Thread.currentThread().getId() + "进行了" + number1);
+                    System.out.println("线程:" + Thread.currentThread().getId() + "进行了" + key);
                     return 1;
                 }
             });
         }
 
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println("==="+list.get(i));
+        }
         try {
             //invokeAll唤醒所有线程执行任务
             executorService.invokeAll(list);
