@@ -33,7 +33,6 @@ public class Test01 {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-
         System.out.println("==="+list.get(0));
 
     }
