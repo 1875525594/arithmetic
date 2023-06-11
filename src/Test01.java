@@ -13,7 +13,7 @@ public class Test01 {
         ArrayList<Callable<Object>> list = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             int number=i;
-            //线程安全。通过单线程分配任务id后，再用启动invokeAll唤醒所有线程执行任务
+            //线程安全。通过单线程分配任务id后，
             list.add(new Callable<Object>() {
                 @Override
                 public Object call() throws Exception {
@@ -24,6 +24,7 @@ public class Test01 {
         }
 
         try {
+            //invokeAll唤醒所有线程执行任务
             executorService.invokeAll(list);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
